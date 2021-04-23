@@ -1,0 +1,27 @@
+﻿<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+	<voice name="en-IN-NeerjaNeural">
+		<mstts:express-as style="cheerful">
+			Guru Bramha
+		</mstts:express-as>
+	</voice>
+	<voice name="en-IN-PrabhatNeural">
+		<mstts:express-as style="cheerful">
+			Guru Vishnu
+		</mstts:express-as>
+	</voice>
+	<voice name="en-IN-NeerjaNeural">
+		<mstts:express-as style="cheerful">
+			Guru Devo Maheshwara
+		</mstts:express-as>
+	</voice>
+	<voice name="en-IN-PrabhatNeural">
+		<mstts:express-as style="cheerful">
+			Guru Sakshat Praabramha
+		</mstts:express-as>
+	</voice>
+	<voice name="en-IN-NeerjaNeural">
+		<mstts:express-as style="cheerful">
+			Tasmai Sri Guruvenamaha
+		</mstts:express-as>
+	</voice>
+</speak>

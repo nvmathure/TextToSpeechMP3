@@ -1,0 +1,50 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "speechServiceSku": {
+            "type": "string",
+            "defaultValue": "F0",
+            "metadata": {
+                "description": "SKU for Speech Cognitive Service. Default is free tier (F0), but you can change it to Standard (S0) or others"
+            }
+        },
+        "tenantCode": {
+            "type": "string",
+            "metadata": {
+                "description": "Random suffix for all resources to avoid name conflicts"
+            }
+        },
+        "primaryLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "Valid Azure Primary Location"
+            }
+        }
+    },
+    "variables": {
+        "speechServiceName": "[concat('SpeechService', '-', parameters('tenantCode'))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-04-18",
+            "name": "[variables('speechServiceName')]",
+            "location": "[parameters('primaryLocation')]",
+            "type": "Microsoft.CognitiveServices/accounts",
+            "kind": "SpeechServices",
+            "sku": {
+                "name": "[parameters('speechServiceSku')]"
+            }
+        }
+    ],
+    "outputs": {
+        "speechServiceEndPoint" : {
+            "type": "string",
+            "value": "[reference(resourceId('Microsoft.CognitiveServices/accounts', variables('speechServiceName')), '2017-04-18').endpoint]"
+        },
+        "speechServiceKey" : {
+            "type": "string",
+            "value": "[listKeys(resourceId('Microsoft.CognitiveServices/accounts', variables('speechServiceName')), '2017-04-18').key1]"
+        }
+    }
+}
